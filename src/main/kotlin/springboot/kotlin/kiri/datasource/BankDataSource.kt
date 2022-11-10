@@ -6,4 +6,5 @@ interface BankDataSource {
 
     fun fetchBanks(): Collection<Bank>
     fun fetchBank(accountNumber: String): Bank
+    fun createBank(bank: Bank): Bank
 }
