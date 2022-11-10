@@ -8,4 +8,5 @@ import springboot.kotlin.kiri.model.Bank
 class BankService(private val dataSource: BankDataSource) {
 
     fun getBanks(): Collection<Bank> = dataSource.fetchBanks()
+    fun getBank(accountNumber: String): Bank = dataSource.fetchBank(accountNumber)
 }
