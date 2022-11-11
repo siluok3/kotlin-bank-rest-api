@@ -2,6 +2,7 @@ package springboot.kotlin.kiri.controller
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
@@ -38,4 +39,8 @@ class BankController(private val bankService: BankService) {
 
     @PatchMapping
     fun updateBank(@RequestBody bank: Bank): Bank = bankService.updateBank(bank)
+
+    @DeleteMapping("/{accountNumber}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun deleteBank(@PathVariable accountNumber: String) = bankService.deleteBank(accountNumber)
 }
